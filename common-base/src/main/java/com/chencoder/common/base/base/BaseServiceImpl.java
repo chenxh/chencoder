@@ -22,12 +22,12 @@ public abstract class BaseServiceImpl implements BaseService<Long, Record, Examp
 
     @Override
     public int insert(Record record) {
-        return 0;
+        return getDao().insert(record);
     }
 
     @Override
     public int insertSelective(Record record) {
-        return 0;
+        return getDao().insertSelective(record);
     }
 
     @Override

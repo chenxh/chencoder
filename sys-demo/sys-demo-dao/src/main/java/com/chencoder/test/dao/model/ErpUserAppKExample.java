@@ -4,7 +4,7 @@ import com.chencoder.common.base.base.Example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlogExample implements Example {
+public class ErpUserAppKExample implements Example {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -15,7 +15,7 @@ public class BlogExample implements Example {
 
     private Integer offset;
 
-    public BlogExample() {
+    public ErpUserAppKExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -185,73 +185,193 @@ public class BlogExample implements Example {
             return (Criteria) this;
         }
 
-        public Criteria andTitleIsNull() {
-            addCriterion("title is null");
+        public Criteria andUserKeyIsNull() {
+            addCriterion("user_key is null");
             return (Criteria) this;
         }
 
-        public Criteria andTitleIsNotNull() {
-            addCriterion("title is not null");
+        public Criteria andUserKeyIsNotNull() {
+            addCriterion("user_key is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTitleEqualTo(String value) {
-            addCriterion("title =", value, "title");
+        public Criteria andUserKeyEqualTo(String value) {
+            addCriterion("user_key =", value, "userKey");
             return (Criteria) this;
         }
 
-        public Criteria andTitleNotEqualTo(String value) {
-            addCriterion("title <>", value, "title");
+        public Criteria andUserKeyNotEqualTo(String value) {
+            addCriterion("user_key <>", value, "userKey");
             return (Criteria) this;
         }
 
-        public Criteria andTitleGreaterThan(String value) {
-            addCriterion("title >", value, "title");
+        public Criteria andUserKeyGreaterThan(String value) {
+            addCriterion("user_key >", value, "userKey");
             return (Criteria) this;
         }
 
-        public Criteria andTitleGreaterThanOrEqualTo(String value) {
-            addCriterion("title >=", value, "title");
+        public Criteria andUserKeyGreaterThanOrEqualTo(String value) {
+            addCriterion("user_key >=", value, "userKey");
             return (Criteria) this;
         }
 
-        public Criteria andTitleLessThan(String value) {
-            addCriterion("title <", value, "title");
+        public Criteria andUserKeyLessThan(String value) {
+            addCriterion("user_key <", value, "userKey");
             return (Criteria) this;
         }
 
-        public Criteria andTitleLessThanOrEqualTo(String value) {
-            addCriterion("title <=", value, "title");
+        public Criteria andUserKeyLessThanOrEqualTo(String value) {
+            addCriterion("user_key <=", value, "userKey");
             return (Criteria) this;
         }
 
-        public Criteria andTitleLike(String value) {
-            addCriterion("title like", value, "title");
+        public Criteria andUserKeyLike(String value) {
+            addCriterion("user_key like", value, "userKey");
             return (Criteria) this;
         }
 
-        public Criteria andTitleNotLike(String value) {
-            addCriterion("title not like", value, "title");
+        public Criteria andUserKeyNotLike(String value) {
+            addCriterion("user_key not like", value, "userKey");
             return (Criteria) this;
         }
 
-        public Criteria andTitleIn(List<String> values) {
-            addCriterion("title in", values, "title");
+        public Criteria andUserKeyIn(List<String> values) {
+            addCriterion("user_key in", values, "userKey");
             return (Criteria) this;
         }
 
-        public Criteria andTitleNotIn(List<String> values) {
-            addCriterion("title not in", values, "title");
+        public Criteria andUserKeyNotIn(List<String> values) {
+            addCriterion("user_key not in", values, "userKey");
             return (Criteria) this;
         }
 
-        public Criteria andTitleBetween(String value1, String value2) {
-            addCriterion("title between", value1, value2, "title");
+        public Criteria andUserKeyBetween(String value1, String value2) {
+            addCriterion("user_key between", value1, value2, "userKey");
             return (Criteria) this;
         }
 
-        public Criteria andTitleNotBetween(String value1, String value2) {
-            addCriterion("title not between", value1, value2, "title");
+        public Criteria andUserKeyNotBetween(String value1, String value2) {
+            addCriterion("user_key not between", value1, value2, "userKey");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountDictIdIsNull() {
+            addCriterion("account_dict_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountDictIdIsNotNull() {
+            addCriterion("account_dict_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountDictIdEqualTo(Long value) {
+            addCriterion("account_dict_id =", value, "accountDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountDictIdNotEqualTo(Long value) {
+            addCriterion("account_dict_id <>", value, "accountDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountDictIdGreaterThan(Long value) {
+            addCriterion("account_dict_id >", value, "accountDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountDictIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("account_dict_id >=", value, "accountDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountDictIdLessThan(Long value) {
+            addCriterion("account_dict_id <", value, "accountDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountDictIdLessThanOrEqualTo(Long value) {
+            addCriterion("account_dict_id <=", value, "accountDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountDictIdIn(List<Long> values) {
+            addCriterion("account_dict_id in", values, "accountDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountDictIdNotIn(List<Long> values) {
+            addCriterion("account_dict_id not in", values, "accountDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountDictIdBetween(Long value1, Long value2) {
+            addCriterion("account_dict_id between", value1, value2, "accountDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountDictIdNotBetween(Long value1, Long value2) {
+            addCriterion("account_dict_id not between", value1, value2, "accountDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExtDictIdIsNull() {
+            addCriterion("ext_dict_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExtDictIdIsNotNull() {
+            addCriterion("ext_dict_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExtDictIdEqualTo(Long value) {
+            addCriterion("ext_dict_id =", value, "extDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExtDictIdNotEqualTo(Long value) {
+            addCriterion("ext_dict_id <>", value, "extDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExtDictIdGreaterThan(Long value) {
+            addCriterion("ext_dict_id >", value, "extDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExtDictIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("ext_dict_id >=", value, "extDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExtDictIdLessThan(Long value) {
+            addCriterion("ext_dict_id <", value, "extDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExtDictIdLessThanOrEqualTo(Long value) {
+            addCriterion("ext_dict_id <=", value, "extDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExtDictIdIn(List<Long> values) {
+            addCriterion("ext_dict_id in", values, "extDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExtDictIdNotIn(List<Long> values) {
+            addCriterion("ext_dict_id not in", values, "extDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExtDictIdBetween(Long value1, Long value2) {
+            addCriterion("ext_dict_id between", value1, value2, "extDictId");
+            return (Criteria) this;
+        }
+
+        public Criteria andExtDictIdNotBetween(Long value1, Long value2) {
+            addCriterion("ext_dict_id not between", value1, value2, "extDictId");
             return (Criteria) this;
         }
     }

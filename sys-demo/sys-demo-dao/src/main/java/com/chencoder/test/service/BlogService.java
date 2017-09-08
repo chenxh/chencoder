@@ -9,6 +9,11 @@ public class BlogService  extends BaseServiceImpl {
 
     private BlogDao blogDao;
 
+    public BlogService(BlogDao mapper) {
+        super();
+        blogDao = mapper;
+    }
+
     @Override
     public BaseMapper getDao() {
         return blogDao;

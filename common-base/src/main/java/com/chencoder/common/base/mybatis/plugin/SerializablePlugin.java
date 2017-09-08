@@ -78,8 +78,8 @@ public class SerializablePlugin extends PluginAdapter {
 
     private void makeExample(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         if(!this.suppressJavaInterface) {
-            topLevelClass.addImportedType(this.recordType);
-            topLevelClass.addSuperInterface(this.recordType);
+            topLevelClass.addImportedType(this.exampleType);
+            topLevelClass.addSuperInterface(this.exampleType);
         }
     }
 

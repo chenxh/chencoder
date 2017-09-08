@@ -4,7 +4,7 @@ import com.chencoder.common.base.base.Example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlogExample implements Example {
+public class ErpUserSystemExample implements Example {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -15,7 +15,7 @@ public class BlogExample implements Example {
 
     private Integer offset;
 
-    public BlogExample() {
+    public ErpUserSystemExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -185,73 +185,123 @@ public class BlogExample implements Example {
             return (Criteria) this;
         }
 
-        public Criteria andTitleIsNull() {
-            addCriterion("title is null");
+        public Criteria andUserIdIsNull() {
+            addCriterion("user_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andTitleIsNotNull() {
-            addCriterion("title is not null");
+        public Criteria andUserIdIsNotNull() {
+            addCriterion("user_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTitleEqualTo(String value) {
-            addCriterion("title =", value, "title");
+        public Criteria andUserIdEqualTo(Long value) {
+            addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTitleNotEqualTo(String value) {
-            addCriterion("title <>", value, "title");
+        public Criteria andUserIdNotEqualTo(Long value) {
+            addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTitleGreaterThan(String value) {
-            addCriterion("title >", value, "title");
+        public Criteria andUserIdGreaterThan(Long value) {
+            addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTitleGreaterThanOrEqualTo(String value) {
-            addCriterion("title >=", value, "title");
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTitleLessThan(String value) {
-            addCriterion("title <", value, "title");
+        public Criteria andUserIdLessThan(Long value) {
+            addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTitleLessThanOrEqualTo(String value) {
-            addCriterion("title <=", value, "title");
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
+            addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTitleLike(String value) {
-            addCriterion("title like", value, "title");
+        public Criteria andUserIdIn(List<Long> values) {
+            addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTitleNotLike(String value) {
-            addCriterion("title not like", value, "title");
+        public Criteria andUserIdNotIn(List<Long> values) {
+            addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTitleIn(List<String> values) {
-            addCriterion("title in", values, "title");
+        public Criteria andUserIdBetween(Long value1, Long value2) {
+            addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTitleNotIn(List<String> values) {
-            addCriterion("title not in", values, "title");
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
+            addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andTitleBetween(String value1, String value2) {
-            addCriterion("title between", value1, value2, "title");
+        public Criteria andPrivilegeIdIsNull() {
+            addCriterion("privilege_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andTitleNotBetween(String value1, String value2) {
-            addCriterion("title not between", value1, value2, "title");
+        public Criteria andPrivilegeIdIsNotNull() {
+            addCriterion("privilege_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdEqualTo(Long value) {
+            addCriterion("privilege_id =", value, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdNotEqualTo(Long value) {
+            addCriterion("privilege_id <>", value, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdGreaterThan(Long value) {
+            addCriterion("privilege_id >", value, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("privilege_id >=", value, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdLessThan(Long value) {
+            addCriterion("privilege_id <", value, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdLessThanOrEqualTo(Long value) {
+            addCriterion("privilege_id <=", value, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdIn(List<Long> values) {
+            addCriterion("privilege_id in", values, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdNotIn(List<Long> values) {
+            addCriterion("privilege_id not in", values, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdBetween(Long value1, Long value2) {
+            addCriterion("privilege_id between", value1, value2, "privilegeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrivilegeIdNotBetween(Long value1, Long value2) {
+            addCriterion("privilege_id not between", value1, value2, "privilegeId");
             return (Criteria) this;
         }
     }

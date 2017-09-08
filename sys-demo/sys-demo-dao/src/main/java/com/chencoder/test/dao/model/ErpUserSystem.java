@@ -2,7 +2,7 @@ package com.chencoder.test.dao.model;
 
 import com.chencoder.common.base.base.Record;
 
-public class Blog implements Record {
+public class ErpUserSystem implements Record {
     /**
      * AUTO_INCREMENT
      *
@@ -10,7 +10,19 @@ public class Blog implements Record {
      */
     private Long id;
 
-    private String title;
+    /**
+     * erp用户ID
+     *
+     * @mbg.generated
+     */
+    private Long userId;
+
+    /**
+     * 系统权限Id
+     *
+     * @mbg.generated
+     */
+    private Long privilegeId;
 
     public Long getId() {
         return id;
@@ -20,12 +32,20 @@ public class Blog implements Record {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getPrivilegeId() {
+        return privilegeId;
+    }
+
+    public void setPrivilegeId(Long privilegeId) {
+        this.privilegeId = privilegeId;
     }
 
     @Override
@@ -35,7 +55,8 @@ public class Blog implements Record {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", title=").append(title);
+        sb.append(", userId=").append(userId);
+        sb.append(", privilegeId=").append(privilegeId);
         sb.append("]");
         return sb.toString();
     }
@@ -51,9 +72,10 @@ public class Blog implements Record {
         if (getClass() != that.getClass()) {
             return false;
         }
-        Blog other = (Blog) that;
+        ErpUserSystem other = (ErpUserSystem) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getTitle() == null ? other.getTitle() == null : this.getTitle().equals(other.getTitle()));
+            && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
+            && (this.getPrivilegeId() == null ? other.getPrivilegeId() == null : this.getPrivilegeId().equals(other.getPrivilegeId()));
     }
 
     @Override
@@ -61,7 +83,8 @@ public class Blog implements Record {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getTitle() == null) ? 0 : getTitle().hashCode());
+        result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
+        result = prime * result + ((getPrivilegeId() == null) ? 0 : getPrivilegeId().hashCode());
         return result;
     }
 }

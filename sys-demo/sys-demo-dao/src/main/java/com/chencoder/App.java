@@ -17,7 +17,7 @@ public class App{
     private static String TABLE_PREFIX = "";
     private static String PACKAGE_NAME = "com.chencoder.test";
     private static String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static String JDBC_URL = "jdbc:MySql://localhost:3306/erp?characterEncoding=UTF-8";
+    private static String JDBC_URL = "jdbc:MySql://localhost:3306/test?characterEncoding=UTF-8";
     private static String JDBC_USERNAME = "root";
     private static String JDBC_PASSWORD = "";
 
