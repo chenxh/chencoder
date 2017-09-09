@@ -4,6 +4,9 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 public class RedisClient {
 
     private JedisPool jedisPool ;
@@ -20,10 +23,13 @@ public class RedisClient {
     }
 
     public String set(String key, String value) {
+        return  execute();
+    }
+    public Object execute(RedisAction action, Object... args) {
         Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
-            return jedis.set(key, value);
+            return action.execute(jedis, args);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -32,5 +38,25 @@ public class RedisClient {
                 jedis.close();
             }
         }
+    }
+    public Object executeCmd(Jedis jedis, RedisAction action,  Object... args) throws InvocationTargetException, IllegalAccessException {
+        return action.execute(jedis, args);
+    }
+
+
+
+    static class RedisAction<T> {
+        private Method method;
+        RedisAction(Method method) {
+            this.method = method;
         }
+        public T execute(Jedis jedis, Object... args) throws InvocationTargetException, IllegalAccessException {
+            if (method == null) {
+                throw new RuntimeException("no method found");
+            }
+
+            return (T) method.invoke(jedis, args);
+        }
+    }
+
 }
