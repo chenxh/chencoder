@@ -4,15 +4,12 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 public class RedisClient {
 
     private JedisPool jedisPool ;
 
     private static final JedisPoolConfig DEFAULT_POOL_CONFIG = new JedisPoolConfig();
-
 
     public RedisClient(String host, int port) {
         this(DEFAULT_POOL_CONFIG, host, port);
@@ -23,9 +20,30 @@ public class RedisClient {
     }
 
     public String set(String key, String value) {
-        return  execute();
+        return execute((jedis, args) -> jedis.set((String)args[0], (String)args[1]), new Object[]{key, value});
     }
-    public Object execute(RedisAction action, Object... args) {
+
+    public String set(String key, String value, String nxxx, String  expx,long timeout) {
+        return execute((jedis, args) ->
+                jedis.set((String) args[0], (String) args[1], (String) args[2], (String) args[3], (long) timeout),
+                new Object[]{key, value, nxxx, expx, timeout});
+    }
+
+    public String get(String key) {
+        return execute((jedis, args) -> jedis.get((String)args[0] ), new Object[]{key});
+    }
+
+    public Long setnx(String key, String value) {
+        return execute((jedis, args) -> {
+            return jedis.setnx((String) args[0], (String) args[1]);}, new Object[]{key, value});
+    }
+
+    public Long del(String key) {
+        return execute((jedis, args) -> jedis.del(key), new Object[]{key});
+    }
+
+
+    public <T> T execute(RedisAction<T> action, Object... args) {
         Jedis jedis = null;
         try {
             jedis = jedisPool.getResource();
@@ -35,28 +53,8 @@ public class RedisClient {
             return null;
         } finally {
             if (jedis != null) {
-                jedis.close();
+                jedisPool.returnResourceObject(jedis);
             }
         }
     }
-    public Object executeCmd(Jedis jedis, RedisAction action,  Object... args) throws InvocationTargetException, IllegalAccessException {
-        return action.execute(jedis, args);
-    }
-
-
-
-    static class RedisAction<T> {
-        private Method method;
-        RedisAction(Method method) {
-            this.method = method;
-        }
-        public T execute(Jedis jedis, Object... args) throws InvocationTargetException, IllegalAccessException {
-            if (method == null) {
-                throw new RuntimeException("no method found");
-            }
-
-            return (T) method.invoke(jedis, args);
-        }
-    }
-
 }

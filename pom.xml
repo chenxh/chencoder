@@ -12,6 +12,7 @@
         <module>common-base</module>
         <module>common-redis</module>
         <module>sys-demo</module>
+        <module>sys-example</module>
     </modules>
 
     <properties>
@@ -82,6 +83,7 @@
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
