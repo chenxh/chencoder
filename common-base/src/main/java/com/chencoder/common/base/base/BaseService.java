@@ -22,8 +22,6 @@ public interface BaseService<Long, Record, Example> {
 
 	int insertSelective(Record record);
 
-	List<Record> selectByExampleWithBLOBs(Example example);
-
 	List<Record> selectByExample(Example example);
 
 	List<Record> selectByExampleForStartPage(Example example, Integer pageNum, Integer pageSize);

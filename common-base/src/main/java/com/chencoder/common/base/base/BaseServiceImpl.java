@@ -54,7 +54,7 @@ public abstract class BaseServiceImpl implements BaseService<Long, Record, Examp
 
     @Override
     public Record selectFirstByExample(Example example) {
-        List<Record> records =  getDao().selectByExample(example);
+        List<Record> records = getDao().selectByExample(example);
         if (records != null && records.size() > 0) {
             return records.get(0);
         }
