@@ -1,0 +1,9 @@
+package ${package_name}.dao;
+
+import com.chencoder.common.base.base.BaseMapper;
+import ${package_name}.pojo.${beanClazz};
+import ${package_name}.pojo.${beanClazz}Example;
+
+public interface BlogDao extends BaseMapper<Long, ${beanClazz}, ${beanClazz}Example>{
+
+}

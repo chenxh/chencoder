@@ -18,7 +18,7 @@ public interface BaseMapper<ID, RECORD, EXAMPLE> {
 
     List<RECORD> selectByExample(EXAMPLE example);
 
-    RECORD selectByPrimaryKey(Integer articleTagId);
+    <RECORD> RECORD selectByPrimaryKey(ID primaryKey);
 
     int updateByExampleSelective(@Param("record") RECORD record, @Param("example") EXAMPLE example);
 

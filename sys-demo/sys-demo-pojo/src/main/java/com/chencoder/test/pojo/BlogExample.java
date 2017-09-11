@@ -1,4 +1,4 @@
-package com.chencoder.test.dao.model;
+package com.chencoder.test.pojo;
 
 import com.chencoder.common.base.base.Example;
 import java.util.ArrayList;

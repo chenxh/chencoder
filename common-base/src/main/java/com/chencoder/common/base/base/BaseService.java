@@ -8,7 +8,7 @@ import java.util.List;
  * BaseService接口
  * Created by chenxh on 2017/01/07.
  */
-public interface BaseService<ID, Record, Example> {
+public interface BaseService<Long, Record, Example> {
 
 	BaseMapper getDao();
 
@@ -16,7 +16,7 @@ public interface BaseService<ID, Record, Example> {
 
 	int deleteByExample(Example example);
 
-	int deleteByPrimaryKey(ID id);
+	int deleteByPrimaryKey(Long id);
 
 	int insert(Record record);
 
@@ -26,34 +26,22 @@ public interface BaseService<ID, Record, Example> {
 
 	List<Record> selectByExample(Example example);
 
-	List<Record> selectByExampleWithBLOBsForStartPage(Example example, Integer pageNum, Integer pageSize);
-
 	List<Record> selectByExampleForStartPage(Example example, Integer pageNum, Integer pageSize);
-
-	List<Record> selectByExampleWithBLOBsForOffsetPage(Example example, Integer offset, Integer limit);
 
 	List<Record> selectByExampleForOffsetPage(Example example, Integer offset, Integer limit);
 
 	Record selectFirstByExample(Example example);
 
-	Record selectFirstByExampleWithBLOBs(Example example);
-
-	Record selectByPrimaryKey(ID id);
+	Record selectByPrimaryKey(Long id);
 
 	int updateByExampleSelective(@Param("record") Record record, @Param("example") Example example);
-
-	int updateByExampleWithBLOBs(@Param("record") Record record, @Param("example") Example example);
 
 	int updateByExample(@Param("record") Record record, @Param("example") Example example);
 
 	int updateByPrimaryKeySelective(Record record);
 
-	int updateByPrimaryKeyWithBLOBs(Record record);
-
 	int updateByPrimaryKey(Record record);
 
-	int deleteByPrimaryKeys(String ids);
-
-	void initMapper();
+	int deleteByPrimaryKeys(Long[] ids);
 
 }

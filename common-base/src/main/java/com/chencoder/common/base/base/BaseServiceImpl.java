@@ -17,7 +17,7 @@ public abstract class BaseServiceImpl implements BaseService<Long, Record, Examp
 
     @Override
     public int deleteByPrimaryKey(Long aLong) {
-        return 0;
+        return getDao().deleteByPrimaryKey(aLong);
     }
 
     @Override
@@ -30,88 +30,70 @@ public abstract class BaseServiceImpl implements BaseService<Long, Record, Examp
         return getDao().insertSelective(record);
     }
 
-    @Override
-    public List<Record> selectByExampleWithBLOBs(Example example) {
-        return null;
-    }
 
     @Override
     public List<Record> selectByExample(Example example) {
-        return null;
+        return getDao().selectByExample(example);
     }
 
-    @Override
-    public List<Record> selectByExampleWithBLOBsForStartPage(Example example, Integer pageNum, Integer pageSize) {
-        return null;
-    }
+
 
     @Override
     public List<Record> selectByExampleForStartPage(Example example, Integer pageNum, Integer pageSize) {
-        return null;
-    }
-
-    @Override
-    public List<Record> selectByExampleWithBLOBsForOffsetPage(Example example, Integer offset, Integer limit) {
-        return null;
+        example.setOffset((pageNum - 1) * pageSize);
+        example.setLimit(pageSize);
+        return getDao().selectByExample(example);
     }
 
     @Override
     public List<Record> selectByExampleForOffsetPage(Example example, Integer offset, Integer limit) {
-        return null;
+        example.setOffset(offset);
+        example.setLimit(limit);
+        return getDao().selectByExample(example);
     }
 
     @Override
     public Record selectFirstByExample(Example example) {
+        List<Record> records =  getDao().selectByExample(example);
+        if (records != null && records.size() > 0) {
+            return records.get(0);
+        }
         return null;
     }
 
-    @Override
-    public Record selectFirstByExampleWithBLOBs(Example example) {
-        return null;
-    }
 
     @Override
     public Record selectByPrimaryKey(Long aLong) {
-        return null;
+        return (Record) getDao().selectByPrimaryKey(aLong);
     }
 
     @Override
     public int updateByExampleSelective(Record record, Example example) {
-        return 0;
-    }
-
-    @Override
-    public int updateByExampleWithBLOBs(Record record, Example example) {
-        return 0;
+        return getDao().updateByExampleSelective(record, example);
     }
 
     @Override
     public int updateByExample(Record record, Example example) {
-        return 0;
+        return getDao().updateByExample(record, example);
     }
 
     @Override
     public int updateByPrimaryKeySelective(Record record) {
-        return 0;
-    }
-
-    @Override
-    public int updateByPrimaryKeyWithBLOBs(Record record) {
-        return 0;
+        return getDao().updateByPrimaryKeySelective(record);
     }
 
     @Override
     public int updateByPrimaryKey(Record record) {
-        return 0;
+        return getDao().updateByPrimaryKey(record);
     }
 
     @Override
-    public int deleteByPrimaryKeys(String ids) {
-        return 0;
+    public int deleteByPrimaryKeys(Long[] ids) {
+        int del = 0;
+        for (Long id : ids) {
+            del += getDao().deleteByPrimaryKey(id);
+        }
+        return del;
     }
 
-    @Override
-    public void initMapper() {
-
-    }
 }

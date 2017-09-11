@@ -20,7 +20,7 @@
         </plugin>
 
 
-        <!-- 生成一个新的selectByExample方法，这个方法可以接收offset和limit参数，主要用来实现分页，只支持mysql(已使用pagehelper代替) -->
+        <!-- 生成一个新的selectByExample方法，这个方法可以接收offset和limit参数，主要用来实现分页，只支持mysql -->
         <plugin type="com.chencoder.common.base.mybatis.plugin.PaginationPlugin"></plugin>
 
         <!-- Java模型生成equals和hashcode方法 -->
@@ -48,7 +48,7 @@
         <!-- <javaClientGenerator targetPackage="${generator_javaClientGenerator_targetPackage}" targetProject="${targetProject}/src/main/java" type="XMLMAPPER" /> -->
 
         <!-- 需要映射的表 -->
-        #foreach($table in $tables)
+      #foreach($table in $tables)
             #if($last_insert_id_tables.containsKey($!table.table_name) == true)
                 <table tableName="$!table.table_name" domainObjectName="$!table.model_name">
                     <generatedKey column="$!last_insert_id_tables.get($!table.table_name)" sqlStatement="MySql" identity="true"/>

@@ -20,7 +20,7 @@
         </plugin>
 
 
-        <!-- 生成一个新的selectByExample方法，这个方法可以接收offset和limit参数，主要用来实现分页，只支持mysql(已使用pagehelper代替) -->
+        <!-- 生成一个新的selectByExample方法，这个方法可以接收offset和limit参数，主要用来实现分页，只支持mysql -->
         <plugin type="com.chencoder.common.base.mybatis.plugin.PaginationPlugin"></plugin>
 
         <!-- Java模型生成equals和hashcode方法 -->
@@ -39,35 +39,15 @@
                         password="" />
 
         <!-- model生成 -->
-        <javaModelGenerator targetPackage="com.chencoder.test.dao.model" targetProject="E:/works/idea/chencoder/sys-demo/sys-demo-dao/src/main/java" />
+        <javaModelGenerator targetPackage="com.chencoder.test.pojo" targetProject="E:/works/idea/chencoder/sys-demo/sys-demo-pojo/src/main/java" />
 
         <!-- MapperXML生成 -->
         <sqlMapGenerator targetPackage="com.chencoder.test.dao.mapper" targetProject="E:/works/idea/chencoder/sys-demo/sys-demo-dao/src/main/resources" />
 
         <!-- Mapper接口生成 -->
-        <!-- <javaClientGenerator targetPackage="com.chencoder.test.dao.mapper" targetProject="E:/works/idea/chencoder/sys-demo/sys-demo-dao/src/main/java" type="XMLMAPPER" /> -->
+        <!-- <javaClientGenerator targetPackage="com.chencoder.test.dao.mapper" targetProject="E:/works/idea/chencoder/sys-demo/sys-demo-pojo/src/main/java" type="XMLMAPPER" /> -->
 
         <!-- 需要映射的表 -->
-                                    <table tableName="blog" domainObjectName="Blog"></table>
-                                                <table tableName="erp_login" domainObjectName="ErpLogin"></table>
-                                                <table tableName="erp_login_account_info" domainObjectName="ErpLoginAccountInfo"></table>
-                                                <table tableName="erp_login_history" domainObjectName="ErpLoginHistory"></table>
-                                                <table tableName="erp_login_status" domainObjectName="ErpLoginStatus"></table>
-                                                <table tableName="erp_org_info" domainObjectName="ErpOrgInfo"></table>
-                                                <table tableName="erp_sta_info" domainObjectName="ErpStaInfo"></table>
-                                                <table tableName="erp_user" domainObjectName="ErpUser"></table>
-                                                <table tableName="erp_user_account_info" domainObjectName="ErpUserAccountInfo"></table>
-                                                <table tableName="erp_user_app_k" domainObjectName="ErpUserAppK"></table>
-                                                <table tableName="erp_user_app_kv" domainObjectName="ErpUserAppKv"></table>
-                                                <table tableName="erp_user_org" domainObjectName="ErpUserOrg"></table>
-                                                <table tableName="erp_user_system" domainObjectName="ErpUserSystem"></table>
-                                                <table tableName="express" domainObjectName="Express"></table>
-                                                <table tableName="order_consignee" domainObjectName="OrderConsignee"></table>
-                                                <table tableName="order_log" domainObjectName="OrderLog"></table>
-                                                <table tableName="order_pay" domainObjectName="OrderPay"></table>
-                                                <table tableName="promotion_config" domainObjectName="PromotionConfig"></table>
-                                                <table tableName="sync_sap_dep" domainObjectName="SyncSapDep"></table>
-                                                <table tableName="sync_sap_per" domainObjectName="SyncSapPer"></table>
-                                                <table tableName="sync_sap_sta" domainObjectName="SyncSapSta"></table>
+                                  <table tableName="blog" domainObjectName="Blog"></table>
                         </context>
 </generatorConfiguration>

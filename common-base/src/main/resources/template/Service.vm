@@ -1,13 +1,26 @@
-package ${package_name}.rpc.api;
+package ${package_name}.service;
 
-import com.zheng.common.base.BaseService;
-import ${package_name}.dao.model.${model};
-import ${package_name}.dao.model.${model}Example;
+import com.chencoder.common.base.base.BaseMapper;
+import com.chencoder.common.base.base.BaseServiceImpl;
+import ${package_name}.dao.BlogDao;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
-* ${model}Service接口
+* ${beanClazz}Service接口
 * Created by chenxh on ${ctime}.
 */
-public interface ${model}Service extends BaseService<${model}, ${model}Example> {
+public class ${beanClazz}Service extends BaseServiceImpl {
 
+    @Autowired
+    private ${beanClazz}Dao ${beanProp}Dao;
+
+    public ${beanClazz}Service(${beanClazz}Dao mapper) {
+        super();
+        ${beanProp}Dao = mapper;
+    }
+
+    @Override
+    public BaseMapper getDao() {
+        return ${beanProp}Dao;
+    }
 }

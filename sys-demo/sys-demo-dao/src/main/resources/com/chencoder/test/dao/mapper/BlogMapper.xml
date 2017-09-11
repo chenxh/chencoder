@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.chencoder.test.dao.BlogDao">
-  <resultMap id="BaseResultMap" type="com.chencoder.test.dao.model.Blog">
+<mapper namespace="com.chencoder.test.dao.mapper.BlogMapper">
+  <resultMap id="BaseResultMap" type="com.chencoder.test.pojo.Blog">
     <result column="id" jdbcType="BIGINT" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
   </resultMap>
@@ -66,7 +66,7 @@
   <sql id="Base_Column_List">
     id, title
   </sql>
-  <select id="selectByExample" parameterType="com.chencoder.test.dao.model.BlogExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.chencoder.test.pojo.BlogExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -88,17 +88,17 @@
       </if>
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.chencoder.test.dao.model.BlogExample">
+  <delete id="deleteByExample" parameterType="com.chencoder.test.pojo.BlogExample">
     delete from blog
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.chencoder.test.dao.model.Blog">
+  <insert id="insert" parameterType="com.chencoder.test.pojo.Blog">
     insert into blog (id, title)
     values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.chencoder.test.dao.model.Blog">
+  <insert id="insertSelective" parameterType="com.chencoder.test.pojo.Blog">
     insert into blog
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -117,7 +117,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.chencoder.test.dao.model.BlogExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.chencoder.test.pojo.BlogExample" resultType="java.lang.Long">
     select count(*) from blog
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
