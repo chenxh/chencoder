@@ -16,6 +16,7 @@
         <module>sys-demo-dao</module>
         <module>sys-demo-service</module>
         <module>sys-demo-pojo</module>
+        <module>sys-demo-web</module>
     </modules>
 
     <properties>
