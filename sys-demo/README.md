@@ -5,4 +5,7 @@
 2. 安装到本地，cd进入generated-sourced/archetype目录，执行:mvn install
 3. 创建maven工程时，就可以使用新的archetype创建
 
+## 参考
+1. spring-boot https://github.com/ityouknow/spring-boot-examples
+
 
