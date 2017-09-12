@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.chencoder.test.dao.mapper.BlogMapper">
-  <resultMap id="BaseResultMap" type="com.chencoder.test.pojo.Blog">
+<mapper namespace="com.chencoder.hello.world.dao.mapper.BlogMapper">
+  <resultMap id="BaseResultMap" type="com.chencoder.hello.world.pojo.Blog">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="col2" jdbcType="VARCHAR" property="col2" />
@@ -68,7 +68,7 @@
   <sql id="Base_Column_List">
     id, title, col2, col3
   </sql>
-  <select id="selectByExample" parameterType="com.chencoder.test.pojo.BlogExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.chencoder.hello.world.pojo.BlogExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -100,19 +100,19 @@
     delete from blog
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.chencoder.test.pojo.BlogExample">
+  <delete id="deleteByExample" parameterType="com.chencoder.hello.world.pojo.BlogExample">
     delete from blog
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.chencoder.test.pojo.Blog" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.chencoder.hello.world.pojo.Blog" useGeneratedKeys="true">
     insert into blog (title, col2, col3
       )
     values (#{title,jdbcType=VARCHAR}, #{col2,jdbcType=VARCHAR}, #{col3,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.chencoder.test.pojo.Blog" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.chencoder.hello.world.pojo.Blog" useGeneratedKeys="true">
     insert into blog
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="title != null">
@@ -137,7 +137,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.chencoder.test.pojo.BlogExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.chencoder.hello.world.pojo.BlogExample" resultType="java.lang.Long">
     select count(*) from blog
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -173,7 +173,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.chencoder.test.pojo.Blog">
+  <update id="updateByPrimaryKeySelective" parameterType="com.chencoder.hello.world.pojo.Blog">
     update blog
     <set>
       <if test="title != null">
@@ -188,7 +188,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.chencoder.test.pojo.Blog">
+  <update id="updateByPrimaryKey" parameterType="com.chencoder.hello.world.pojo.Blog">
     update blog
     set title = #{title,jdbcType=VARCHAR},
       col2 = #{col2,jdbcType=VARCHAR},

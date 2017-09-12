@@ -8,38 +8,84 @@ import java.util.List;
  * BaseService接口
  * Created by chenxh on 2017/01/07.
  */
-public interface BaseService<Long, Record, Example> {
+public abstract class BaseService<ID, T extends Record, E extends Example> {
 
-	BaseMapper getDao();
+	protected abstract BaseMapper<ID, T, E> getDao();
 
-	int countByExample(Example example);
+	public int countByExample(E example) {
+		return (int) getDao().countByExample(example);
+	}
 
-	int deleteByExample(Example example);
+	public int deleteByExample(E example) {
+		return getDao().deleteByExample(example);
+	}
 
-	int deleteByPrimaryKey(Long id);
+	public int deleteByPrimaryKey(ID id) {
+		return getDao().deleteByPrimaryKey(id);
+	}
 
-	int insert(Record record);
+	public int insert(T record) {
+		return getDao().insert(record);
+	}
 
-	int insertSelective(Record record);
+	public int insertSelective(T record) {
+		return getDao().insertSelective(record);
+	}
 
-	List<Record> selectByExample(Example example);
 
-	List<Record> selectByExampleForStartPage(Example example, Integer pageNum, Integer pageSize);
+	public List<T> selectByExample(E example) {
+		return getDao().selectByExample(example);
+	}
 
-	List<Record> selectByExampleForOffsetPage(Example example, Integer offset, Integer limit);
 
-	Record selectFirstByExample(Example example);
 
-	Record selectByPrimaryKey(Long id);
+	public List<T> selectByExampleForStartPage(E example, Integer pageNum, Integer pageSize) {
+		example.setOffset((pageNum - 1) * pageSize);
+		example.setLimit(pageSize);
+		return getDao().selectByExample(example);
+	}
 
-	int updateByExampleSelective(@Param("record") Record record, @Param("example") Example example);
+	public List<T> selectByExampleForOffsetPage(E example, Integer offset, Integer limit) {
+		example.setOffset(offset);
+		example.setLimit(limit);
+		return getDao().selectByExample(example);
+	}
 
-	int updateByExample(@Param("record") Record record, @Param("example") Example example);
+	public T selectFirstByExample(E example) {
+		List<T> records = getDao().selectByExample(example);
+		if (records != null && records.size() > 0) {
+			return records.get(0);
+		}
+		return null;
+	}
 
-	int updateByPrimaryKeySelective(Record record);
 
-	int updateByPrimaryKey(Record record);
+	public T selectByPrimaryKey(ID id) {
+		return getDao().selectByPrimaryKey(id);
+	}
 
-	int deleteByPrimaryKeys(Long[] ids);
+	public int updateByExampleSelective(T record, E example) {
+		return getDao().updateByExampleSelective(record, example);
+	}
+
+	public int updateByExample(T record, E example) {
+		return getDao().updateByExample(record, example);
+	}
+
+	public int updateByPrimaryKeySelective(T record) {
+		return getDao().updateByPrimaryKeySelective(record);
+	}
+
+	public int updateByPrimaryKey(T record) {
+		return getDao().updateByPrimaryKey(record);
+	}
+
+	public int deleteByPrimaryKeys(ID[] ids) {
+		int del = 0;
+		for (ID id : ids) {
+			del += getDao().deleteByPrimaryKey(id);
+		}
+		return del;
+	}
 
 }

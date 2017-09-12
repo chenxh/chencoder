@@ -12,10 +12,10 @@ import java.util.Map;
 public class App{
 
 
-    private static String MODULE = "sys-demo";
+    private static String MODULE = "hello-world";
     private static String DATABASE = "test";
     private static String TABLE_PREFIX = "";
-    private static String PACKAGE_NAME = "com.chencoder.test";
+    private static String PACKAGE_NAME = "com.chencoder.hello.world";
 //    private static String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     private static String JDBC_URL = "jdbc:MySql://localhost:3306/test?characterEncoding=UTF-8";

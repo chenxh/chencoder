@@ -1,26 +1,27 @@
 package ${package_name}.service;
 
 import com.chencoder.common.base.base.BaseMapper;
-import com.chencoder.common.base.base.BaseServiceImpl;
-import ${package_name}.dao.BlogDao;
+import com.chencoder.common.base.base.BaseService;
+import ${package_name}.dao.mapper.${beanClazz}Mapper;
+import ${package_name}.pojo.${beanClazz};
+import ${package_name}.pojo.${beanClazz}Example;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
 * ${beanClazz}Service接口
 * Created by chenxh on ${ctime}.
 */
-public class ${beanClazz}Service extends BaseServiceImpl {
+public class ${beanClazz}Service extends BaseService<Long, ${beanClazz}, ${beanClazz}Example> {
 
     @Autowired
-    private ${beanClazz}Dao ${beanProp}Dao;
-
-    public ${beanClazz}Service(${beanClazz}Dao mapper) {
-        super();
-        ${beanProp}Dao = mapper;
-    }
+    private ${beanClazz}Mapper ${beanProp}Mapper;
 
     @Override
-    public BaseMapper getDao() {
-        return ${beanProp}Dao;
+    protected BaseMapper<Long, ${beanClazz}, ${beanClazz}Example> getDao() {
+        return ${beanProp}Mapper;
+    }
+
+    public void set${beanClazz}Mapper(${beanClazz}Mapper ${beanProp}Mapper) {
+        this.${beanProp}Mapper = ${beanProp}Mapper;
     }
 }

@@ -97,9 +97,9 @@ public class MybatisGeneratorUtil {
             context.put("last_insert_id_tables", last_insert_id_tables);
             VelocityUtil.generate(GENERATORCONFIG_VM, generatorConfig_xml, context);
             // 删除旧代码
-            deleteDir(new File(targetProject + "/src/main/java/" + package_name.replaceAll("\\.", "/") + "/dao/model"));
+            deleteDir(new File(targetProject_pojo + "/src/main/java/" + package_name.replaceAll("\\.", "/") + "/pojo"));
             deleteDir(new File(targetProject + "/src/main/java/" + package_name.replaceAll("\\.", "/") + "/dao/mapper"));
-            deleteDir(new File(targetProject_pojo + "/src/main/java/" + package_name.replaceAll("\\.", "/") + "/dao/mapper"));
+            //deleteDir(new File(targetProject_pojo + "/src/main/java/" + package_name.replaceAll("\\.", "/") + "/dao/mapper"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -157,11 +157,11 @@ public class MybatisGeneratorUtil {
     private static void generateDao(String basePath, String module, String packageName, List<Map<String, Object>> tables) throws Exception {
         System.out.println("========== 开始生成Dao ==========");
         String ctime = new SimpleDateFormat("yyyy/M/d").format(new Date());
-        String daoPath = basePath + module + "/" + module + "-dao" + "/src/main/java/" + packageName.replaceAll("\\.", "/") + "/dao";
+        String daoPath = basePath + module + "/" + module + "-dao" + "/src/main/java/" + packageName.replaceAll("\\.", "/") + "/dao/mapper";
         createPathIfNotExists(daoPath);
         for (int i = 0; i < tables.size(); i++) {
             String model = StringUtil.lineToHump(ObjectUtils.toString(tables.get(i).get("table_name")));
-            String dao = daoPath + "/" + model + "Dao.java";
+            String dao = daoPath + "/" + model + "Mapper.java";
             // 生成service
             File serviceFile = new File(dao);
             if (!serviceFile.exists()) {
