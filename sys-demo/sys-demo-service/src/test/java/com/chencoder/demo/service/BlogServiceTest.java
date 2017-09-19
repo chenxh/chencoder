@@ -19,7 +19,10 @@ public class BlogServiceTest {
 
     @Test
     public void testBlogService() {
-        blogService.insert(new Blog());
+        Blog record = new Blog();
+        blogService.insert(record);
+
+        blogService.deleteByPrimaryKey(record.getId());
     }
 
 }

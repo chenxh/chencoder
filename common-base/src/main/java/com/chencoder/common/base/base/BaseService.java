@@ -32,12 +32,9 @@ public abstract class BaseService<ID, T extends Record, E extends Example> {
 		return getDao().insertSelective(record);
 	}
 
-
 	public List<T> selectByExample(E example) {
 		return getDao().selectByExample(example);
 	}
-
-
 
 	public List<T> selectByExampleForStartPage(E example, Integer pageNum, Integer pageSize) {
 		example.setOffset((pageNum - 1) * pageSize);
