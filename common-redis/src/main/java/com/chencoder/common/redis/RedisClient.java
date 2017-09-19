@@ -49,8 +49,7 @@ public class RedisClient {
             jedis = jedisPool.getResource();
             return action.execute(jedis, args);
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            throw new RedisExecuteException("执行redis action 异常", e);
         } finally {
             if (jedis != null) {
                 jedisPool.returnResourceObject(jedis);
